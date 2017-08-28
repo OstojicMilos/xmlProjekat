@@ -2,8 +2,13 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class ZahtevZaIzvod {
 
+	@Id
 	private int id;
 	private String brojRacuna;
 	private LocalDate datum;

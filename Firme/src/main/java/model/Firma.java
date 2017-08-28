@@ -1,7 +1,12 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Firma {
 
+	@Id
 	private int id;
 	private String nazivFirme;
 	private String brojRacuna;
@@ -10,8 +15,6 @@ public class Firma {
 		
 	}
 
-	
-	
 	public int getId() {
 		return id;
 	}

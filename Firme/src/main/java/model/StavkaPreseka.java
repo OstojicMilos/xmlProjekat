@@ -2,8 +2,13 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class StavkaPreseka {
 
+	@Id
 	private int id;
 	private int idStavke;
 	private String duznikNalogodavac;
