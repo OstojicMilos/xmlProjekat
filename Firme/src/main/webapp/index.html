@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="utf-8">
+
+		<!-- Bootstrap-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+ 
+		<!-- AngularJS -->
+		<script src="//code.angularjs.org/1.5.9/angular.js"></script>
+		<script src="//code.angularjs.org/1.5.9/angular-messages.js"></script>
+		<script src="//code.angularjs.org/1.5.9/angular-route.js"></script>
+		<script src="//code.angularjs.org/1.5.9/angular-resource.js"></script>
+		<script	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.js"></script>
+		
+		
+		
+		<script src="app.js"></script>
+		<script src="js/IzvodController.js"></script>
+		<script src="js/NalogController.js"></script>
+		<script src="js/FakturaController.js"></script>
+		
+</head>
+
+<body>
+	<div class="topnav">
+				
+				<a style="padding:10px;" href="#/faktura">Slanje fakture</a>
+				<a style="padding:10px;" href="#/nalog">Slanje naloga za plaćanje</a>
+				<a style="padding:10px;" href="#/izvod">Preuzimanje izvoda</a>
+				
+			
+		</div>
+		<div ui-view></div>
+	
+	</div>
+				
+
+</body>
+
+</html>

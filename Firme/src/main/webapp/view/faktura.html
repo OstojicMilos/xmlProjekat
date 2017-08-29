@@ -1,0 +1,188 @@
+<h1>faktura</h1>
+
+
+
+<form>
+<div layout="row">
+
+	<div layout="column" layout-margin>
+		<div layout="row">
+		
+			<div>
+				<md-input-container>
+					<label>Naziv Dobavljaca</label>
+	    			<input ng-model="nazivDobavljaca">
+				</md-input-container>
+			
+				<md-input-container>
+					<label>Adresa dobavljaca</label>
+	    			<input ng-model="adresaDobavljaca">
+				</md-input-container>
+		
+				<md-input-container>
+					<label>PIB dobavljaca</label>
+		    		<input ng-model="pibDobavljaca">
+				</md-input-container>
+				
+			</div>
+			
+			<div>
+				<md-input-container>
+					<label>Naziv kupca</label>
+		    		<input ng-model="nazivKupca" >
+				</md-input-container>
+				
+				
+				<md-input-container>
+						<label>Adresa kupca</label>
+		    		<input ng-model="adresaKupca" ng-readonly="true">
+				</md-input-container>
+			
+				<md-input-container>
+					<label>PIB kupca</label>
+		    		<input ng-model="pibKupca">
+				</md-input-container>
+			</div>
+			
+			<div>
+				<md-input-container>
+					<label>Broj racuna</label>
+    				<input ng-model="brojRacuna" >
+				</md-input-container>
+				
+				<md-input-container>
+					<label>Uplata na racun</label>
+		    		<input ng-model="uplataNaRacun" >
+				</md-input-container>
+		
+				<md-input-container>
+					<label>Datum racuna</label>
+    				<md-datepicker ng-model="datumRacuna" ></md-datepicker>
+				</md-input-container>
+				
+				<md-input-container>
+					<label>Datum valute</label>
+		    		<md-datepicker ng-model="datumValute" ></md-datepicker>
+				</md-input-container>
+		
+			</div>
+		
+		</div>
+		
+	</div>
+	<hr>
+	
+	<md-toolbar class="md-hue-2">
+	<div class="md-toolbar-tools">
+	<h2 flex md-truncate>Dodavanje nove stavke</h2>    
+    
+	</div>
+</md-toolbar>
+<form name="form">
+	<div layout="row">
+			<div>
+				<md-input-container>
+					<label>Naziv</label>
+	    			<input ng-model="naziv">
+				</md-input-container>
+				
+				<md-input-container>
+					<label>Jedinicna cena</label>
+	    			<input ng-model="jedinicnaCena" type="number">
+				</md-input-container>
+		
+				<md-input-container>
+					<label>Kolicina</label>
+	    			<input ng-model="kolicina" type="number">
+				</md-input-container>
+				
+			</div>
+			<div>
+				<md-input-container>
+					<label>Jedinica mere</label>
+	    			<input ng-model="jedinicaMere">
+				</md-input-container>
+				
+				<md-input-container>
+					<label>Vrednost</label>
+	    			<input ng-model="vrednost" type="number">
+				</md-input-container>
+				
+				<md-input-container>
+					<label>Rabat</label>
+	    			<input ng-model="rabat" type="number">
+				</md-input-container>
+				
+			</div>
+			
+			
+			<button  ng-click="dodajStavku()">Dodaj</button>
+				
+	</div>
+</form>
+<div>
+<md-toolbar class="md-hue-2">
+	<div class="md-toolbar-tools">
+	<h2 flex md-truncate>Stavke fakture</h2>
+    
+	</div>
+</md-toolbar>
+</div>
+
+</div>
+
+<md-content>
+<md-table-container>
+  <table md-table md-row-select multiple ng-model="selektovanaStavka">
+    <thead md-head md-order="myOrder" >
+      <tr md-row>
+        <th md-column md-numeric style="padding:10px;"><span>Red.br.</span></th>
+        <th md-column md-order-by="naziv" style="padding:10px;"><span>Naziv</span></th>
+        <th md-column md-numeric style="padding:10px;">Jedinicna cena</th>
+        <th md-column md-numeric style="padding:10px;">Kolicina</th>
+        <th md-column style="padding:10px;">Jedinica mere</th>
+        <th md-column md-numeric style="padding:10px;">Vrednost</th>
+        <th md-column md-numeric style="padding:10px;">Rabat (%)</th>
+        <th md-column md-numeric style="padding:10px;">Iznos rabata</th>
+        <th md-column md-numeric style="padding:10px;">Umanjeno za rabat</th>
+        <th md-column md-numeric style="padding:10px;">Ukupno</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-select="stavka" md-select-id="naziv" md-auto-select ng-repeat="stavka in stavke">
+        <td md-cell>{{$index+1}}</td>
+        <td md-cell>{{stavka.naziv}}</td>
+        <td md-cell>{{stavka.jedinicnaCena}}</td>
+        <td md-cell>{{stavka.kolicina}}</td>
+        <td md-cell>{{stavka.jedinicaMere}}</td>
+        <td md-cell>{{stavka.vrednost}}</td>
+        <td md-cell>{{stavka.rabat}}</td>
+        <td md-cell>{{stavka.iznosRabata}}</td>
+        <td md-cell>{{stavka.umanjenoZaRabat}}</td>
+      	<td md-cell>{{stavka.ukupno}}</td>
+      </tr>
+    </tbody>
+  </table>  
+</md-table-container>	
+
+</md-content>
+<hr>
+<div><b>
+		<label style="padding:10px;">Vrednost robe: {{vrednostRobe}}</label>
+		<label style="padding:10px;">Ukupno porez: {{ukupnoPorez}}</label>			
+		<label style="padding:10px;">Ukupno rabat: {{ukupnoRabat}}</label>
+		<label style="padding:10px;">Oznaka valute: {{oznakaValute}}</label>
+		<label style="padding:10px;">Iznos za uplatu: {{iznosZaUplatu}}</label>
+		
+	</b>
+</div>
+
+<md-toolbar class="md-hue-2">
+	<div class="md-toolbar-tools">
+  	<button ng-click="posaljiFakturu()">Posalji</button>
+	</div>
+</md-toolbar>
+</div>
+	
+</div>
+</form>
