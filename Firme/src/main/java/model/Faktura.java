@@ -3,8 +3,13 @@ package model;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Faktura {
 
+	@Id
 	private int id;
 	private String idPoruke;
 	private String nazivDobavljaca;

@@ -3,8 +3,13 @@ package model;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Presek {
 
+	@Id
 	private int idPreseka;
 	private String brojRacuna;
 	private LocalDate datumNaloga;

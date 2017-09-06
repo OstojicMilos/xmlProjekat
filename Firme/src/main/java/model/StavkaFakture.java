@@ -1,7 +1,12 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class StavkaFakture {
 
+	@Id
 	private int id;
 	private String idFakture;
 	private int redniBroj;
