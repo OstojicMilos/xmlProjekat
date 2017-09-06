@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/zahtevZaIzvod"
+    xmlns:zzi="http://www.ftn.uns.ac.rs/zahtevZaIzvod">
+
+
+    <xs:complexType name="zahtev_za_izvod">
+        <xs:sequence>
+            <xs:element name="brojRacuna">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="18"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="datum" type="xs:date"/>
+            <xs:element name="redniBrojPreseka">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:totalDigits value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getZahtevZaIzvodRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zahtev_za_izvod" type="zzi:zahtev_za_izvod"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getZahtevZaIzvodResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zahtev_za_izvod" type="zzi:zahtev_za_izvod"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,4 +1,4 @@
-package ftn.xml.Banka;
+package rs.ac.uns.ftn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
